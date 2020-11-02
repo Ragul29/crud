@@ -1,42 +1,37 @@
 package io.crudoperation.project.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 import javax.validation.constraints.NotBlank;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "customer")
 public class Customer {
 
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+   private String id;
 
 	@NotBlank(message = "Name is mandatory")
-    @Column(name = "name")
-    private String name;
+   private String name;
 
 	@NotBlank(message = "Email is mandatory")
-    @Column(name = "email")
-    private String email;
+   private String email;
 
 	@NotBlank(message = "Message is mandatory")
-    @Column(name = "query")
-    private String query;
+   private String query;
     
   
 
     public Customer() {}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
 
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
