@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import io.crudoperation.project.entity.Customer;
 import io.crudoperation.project.repository.CustomerRepository;
 
 @Controller
-@RequestMapping("/customers/")
+@RequestMapping("/customers")
 public class CustomerController {
 
     private final CustomerRepository customerRepository;
@@ -24,6 +26,14 @@ public class CustomerController {
         this.customerRepository = customerRepository;
     }
 
+    
+   
+    @RequestMapping("/")
+	public ModelAndView Home()
+	{
+		return new ModelAndView("index");
+	}
+    
     @GetMapping("signup")
     public String showSignUpForm(Customer customer) {
         return "add-customer";
