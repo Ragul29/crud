@@ -18,8 +18,13 @@
                 <div th:switch="${customers}" class="container my-5">
                     <p class="my-5">
                         <a href="/customers/signup" class="btn btn-primary"><i
-       class="fas fa-user-plus ml-2"> Add Customer</i></a>
-                    </p>
+       class="fas fa-user-plus ml-2"> Add Customer</i></a><span>  </span>
+       <a href="/customers/list" class="btn btn-primary"><i
+       class="fas fa-user-plus ml-2"> view Customers</i></a><span>  </span>
+       <a href="/logout" class="btn btn-primary"><i
+       class="fas fa-user-plus ml-2"> Logout</i></a>
+       </p>
+                    
                     <div class="col-md-10">
                         <h2 th:case="null">No Customers yet!</h2>
                         <div th:case="*">
